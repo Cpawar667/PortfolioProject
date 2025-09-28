@@ -1,17 +1,15 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: <!-- TODO: Christian Pawar
+- **Dot Number**: <!-- TODO: pawar.71
+- **Due Date**: <!-- TODO: 9/19 @ 12:40 PM
 
 ## Assignment Overview
 
 <!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
-your own OSU component. There are no limits to what you choose to design and
-implement, but your component must fit within the constraints of our software
-sequence discipline. In other words, the component must extend from Standard and
+your own OSU component. There are no limits to what you choose to design and implement, but your component must fit within the constraints of our software sequence discipline. In other words, the component must extend from Standard and
 must include both a kernel and a secondary interface.
 
 Because this is a daunting project, we will be providing you with a series of
@@ -106,11 +104,7 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+<!-- TODO: I enjoy playing video games, lifing weights, running, listening to music. I am majoring in ECE so in the future I would like to build some heardware or work on software for companies. 
 
 ## Assignment
 
@@ -200,11 +194,11 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: <!-- TODO: Workout plan
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - <!-- TODO: I would like to create something that creates a workout plan for the day based off how you feel and where you are sore.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - <!-- TODO: 
   - **Secondary Methods**:
     - <!-- TODO: list secondary methods then delete this comment -->
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
