@@ -6,7 +6,7 @@
 
 ## Assignment Overview
 
-<!-- TODO: read the assignment overview then delete this comment -->
+
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and implement, but your component must fit within the constraints of our software sequence discipline. In other words, the component must extend from Standard and
@@ -27,7 +27,7 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
+
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -196,66 +196,96 @@ will likely refine your design to make your implementation easier to use.
 
 - Component Design #1: <!-- TODO: Workout plan
   - **Description**:
-    - <!-- TODO: I would like to create something that creates a workout plan for the day based off how you feel and where you are sore.
+    -  I would like to create something that creates a workout plan for the day based off how you feel and where you are sore. Uses map to track how you feel in each muscle group.
   - **Kernel Methods**:
+    - <!-- TODO:final void
+add(K key, V value): Adds the pair (key, value) to this.
+final void clear(): Resets this to an initial value.
+final boolean hasKey(K key): Reports whether there is a pair in this whose first component is key.
+final Map.Pair<K,V> remove(K key): Removes the pair whose first component is key and returns it.
+final V replaceValue(K key, V value): Replaces the value associated with key in this with value and returns the old value.
+final int size(): Reports size of this.
+final V value(K key): Reports the value associated with key in this.
+  - **Secondary Methods**:
     - <!-- TODO: 
-  - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    final Iterator<Map.Pair<K,V>> iterator()
+    final Map<K,V> newInstance(): Returns a new object with the same dynamic type as this, having an initial value.
+    final Map.Pair<K,V> removeAny(): Removes and returns an arbitrary pair from this.
+    final void transferFrom(Map<K,V> source): Sets this to the incoming value of source, and resets source to an initial value; the declaration notwithstanding, the dynamic type of source must be the same as the dynamic type of this.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      -  The object for the workout plan would be mutable as it would have to be adjusted
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
-      Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Would this component need any enums or constants (e.g.,
+      Answer and explain:Yes I would think I need to it to use to store information
+      omponent need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I dont know
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I dont know
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: Playlist
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - I would like to create a component that stores song into an ordered playlist that can also shuffle.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    -void add(int pos, T x)	Inserts x at index pos
+T remove(int pos)	Removes and returns item at index pos
+T entry(int pos)	Returns (but does not remove) item at index pos
+T replaceEntry(int pos, T x)	Replaces entry at pos with x, returns the old entry
+int length()	Returns the number of entries
+void clear()	Removes all entries 
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - boolean isEmpty()	length()	Checks if playlist is empty
+void addToEnd(T x)	add(int, T), length()	Adds item to the end
+T first()	entry(0)	Gets first item
+T last()	entry(length() - 1)	Gets last item
+int indexOf(T x)	entry(int)	Returns index of x or -1
+boolean contains(T x)	indexOf(x)	Checks if x is in sequence
+void shuffle()	swap, length()	Randomly reorders the list
+void moveToFront(T x)	remove(int), add(0, T)	Moves item to front
+void moveToEnd(T x)	remove(int), addToEnd()	Moves item to end
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes this would be mutable because it would have to change over time.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I dont think so, I think it could still work with just a sequence
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Could haven a enum for the play or shuffle option.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes I dont know what it would like yet
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: Interval set 
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - I would like a to create a set of inetervals, so it can used for a schedule. It would store the data ause memory allocation
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void addInterval(int start, int end) – adds a new interval [start, end] into the set, merging with overlapping intervals if necessary.
+boolean removeInterval(int start, int end) – removes the exact interval [start, end] if present.
+boolean contains(int value) – reports whether a given integer is inside any stored interval.
+boolean isEmpty() – reports whether there are no intervals stored
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - int totalCoveredLength() – returns the total number of unique integers covered by the intervals.
+boolean overlaps(int start, int end) – reports whether a new interval overlaps with any existing interval.
+List<Interval> toList() – returns all intervals as a list for iteration.
+int size() – reports the number of intervals currently stored.
+void clear() – removes all intervals.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. The set changes whenever an interval is added or removed, so its contents can change over time.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - An internal class like interval would help out a lot to represent each interval cleanly.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I dont think so
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes overlaps(int start, int end) could be used through contains(int value) by doing repeated calls to the it from the kernel
 
 ## Post-Assignment
 
