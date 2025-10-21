@@ -175,8 +175,8 @@ the following form: YYYY.0M.0D.
 
 ### Updated
 
-- Changed design to include ...
-
+- Changed design to include kernel methods...
+## 2025.10.21
 ```
 
 Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
