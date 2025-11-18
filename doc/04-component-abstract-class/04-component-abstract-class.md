@@ -1,8 +1,8 @@
 # Portfolio Part 4: Abstract Class
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Christian Pawar
+- **Dot Number**: pawar.71
+- **Due Date**: 11/7 @ 12:40 PM
 
 ## Assignment Overview
 
@@ -47,8 +47,6 @@ methods only.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -86,7 +84,7 @@ project. Specifically, students should be able to:
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
 are meant to provide ongoing feedback in the learning process. Therefore,
-the rubric is designed to assess the learning objectives *directly* in a way
+the rubric is designed to assess the learning objectives _directly_ in a way
 that is low stakes—meaning you shouldn't have to worry about the grade. Just
 do good work.
 
@@ -136,8 +134,6 @@ Below is further rationale/explanation for the rubric items above:
 > rebase strategies described [here](https://stackoverflow.com/questions/35790561/working-while-waiting-for-pending-pr)
 > and [here](https://stackoverflow.com/questions/18021888/continue-working-on-a-git-branch-after-making-a-pull-request).
 
-
-
 ## Assignment Tasks
 
 Your primary task for this assignment is to create an abstract class that falls
@@ -157,8 +153,6 @@ completed the assignment.
 
 ### Changelog
 
-
-
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
 Here's what I would expect to see at the minimum:
@@ -172,16 +166,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
-## YYYY.MM.DD
+## 2025.11.18
 
 ### Added
 
-- Designed abstract class for WorkoutPlanner component
+- Designed abstract class for WorkoutPlanner component that is compilable with the kernel and secondary methods.
 
 ### Updated
 
-- Changed design to include ...
-
+- Changed design to include compilable secondary methods
 ```
 
 Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
@@ -191,8 +184,6 @@ like to accomplish that, you will need to make GitHub releases after each pull
 request merge (or at least tag your commits). This is not required.
 
 ### Submission
-
-
 
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
