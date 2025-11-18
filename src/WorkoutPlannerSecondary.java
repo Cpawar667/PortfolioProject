@@ -15,7 +15,7 @@ import components.sequence.Sequence1L;
  * </pre>
  * @initially <pre>
  * default:
- *  ensures
+ *  ensuresl
  *   this = {}
  * </pre>
  * @iterator <pre>
