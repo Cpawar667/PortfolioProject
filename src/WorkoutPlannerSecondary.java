@@ -5,36 +5,38 @@ import components.sequence.Sequence;
 import components.sequence.Sequence1L;
 
 /**
- * WorkoutPlannerSecondary: A partial implementation of the WorkoutPlanner
- * interface that provides secondary methods using the kernel methods.
+ * Layered abstract implementation of the {@code WorkoutPlanner} interface.
+ *
+ * <p>
+ * This class implements all secondary methods by calling only the abstract
+ * kernel methods inherited from {@code WorkoutPlannerKernel}. The kernel
+ * methods themselves remain abstract in this class.
+ * </p>
+ *
+ * <p>
+ * Assuming execution-time performance of kernel methods is O(1), the
+ * performance of the implemented methods is as follows:
+ * </p>
+ * <ul>
+ * <li>replaceValue: O(1)</li>
+ * <li>generateTrainingPlan: O(n) where n = |this|</li>
+ * <li>generateRestMap: O(n) where n = |this|</li>
+ * </ul>
  *
  * @author Christian Pawar
- *
- * @mathmodel <pre>
- * type WorkoutPlanner is modeled as a partial function from MuscleGroup to SorenessLevel
- * </pre>
- * @initially <pre>
- * default:
- *  ensuresl
- *   this = {}
- * </pre>
- * @iterator <pre>
- * ~this.seen * ~this.unseen = this  and
- * |~this.seen * ~this.unseen| = |this|
- * </pre>
  */
-
 public abstract class WorkoutPlannerSecondary implements WorkoutPlanner {
 
     @Override
-    public final SorenessLevel replaceValue(MuscleGroup muscleGroup,
-            SorenessLevel newSorenessLevel) {
+    public final WorkoutPlanner.SorenessLevel replaceValue(
+            WorkoutPlanner.MuscleGroup muscleGroup,
+            WorkoutPlanner.SorenessLevel newSorenessLevel) {
         // Uses kernel methods: hasKey(), remove(), and add()
         assert this.hasKey(
                 muscleGroup) : "Violation of: muscleGroup is in DOMAIN(this)";
 
         // Remove the old entry and get the old soreness level
-        SorenessLevel oldLevel = this.remove(muscleGroup);
+        WorkoutPlanner.SorenessLevel oldLevel = this.remove(muscleGroup);
 
         // Add the new entry with the updated soreness level
         this.add(muscleGroup, newSorenessLevel);
@@ -43,21 +45,22 @@ public abstract class WorkoutPlannerSecondary implements WorkoutPlanner {
     }
 
     @Override
-    public final Sequence<MuscleGroup> generateTrainingPlan(
-            SorenessLevel mandatoryRestLevel) {
+    public final Sequence<WorkoutPlanner.MuscleGroup> generateTrainingPlan(
+            WorkoutPlanner.SorenessLevel mandatoryRestLevel) {
         /*
          * Uses kernel methods: size(), removeAny(), add() (on temp map),
          * transferFrom(), and the getLevel() method on the SorenessLevel enum.
          */
-        Sequence<MuscleGroup> trainingPlan = new Sequence1L<>();
+        Sequence<WorkoutPlanner.MuscleGroup> trainingPlan = new Sequence1L<>();
         // Temporary storage to hold and restore the content of 'this'
-        Map<MuscleGroup, SorenessLevel> temp = new Map1L<>();
+        Map<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> temp = new Map1L<>();
 
         // Iterate through all entries using the kernel methods
         while (this.size() > 0) {
-            Pair<MuscleGroup, SorenessLevel> entry = this.removeAny();
-            MuscleGroup group = entry.key();
-            SorenessLevel level = entry.value();
+            Pair<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> entry = this
+                    .removeAny();
+            WorkoutPlanner.MuscleGroup group = entry.key();
+            WorkoutPlanner.SorenessLevel level = entry.value();
 
             // If soreness level is below mandatory rest level, add to training plan
             if (level.getLevel() < mandatoryRestLevel.getLevel()) {
@@ -75,22 +78,23 @@ public abstract class WorkoutPlannerSecondary implements WorkoutPlanner {
     }
 
     @Override
-    public final Map<MuscleGroup, SorenessLevel> generateRestMap(
-            SorenessLevel mandatoryRestLevel) {
+    public final Map<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> generateRestMap(
+            WorkoutPlanner.SorenessLevel mandatoryRestLevel) {
         /*
          * Uses kernel methods: size(), removeAny(), add() (on rest map and temp
          * map), transferFrom(), and the getLevel() method on the SorenessLevel
          * enum.
          */
-        Map<MuscleGroup, SorenessLevel> restMap = new Map1L<>();
+        Map<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> restMap = new Map1L<>();
         // Temporary storage to hold and restore the content of 'this'
-        Map<MuscleGroup, SorenessLevel> temp = new Map1L<>();
+        Map<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> temp = new Map1L<>();
 
         // Iterate through all entries using the kernel methods
         while (this.size() > 0) {
-            Pair<MuscleGroup, SorenessLevel> entry = this.removeAny();
-            MuscleGroup group = entry.key();
-            SorenessLevel level = entry.value();
+            Pair<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> entry = this
+                    .removeAny();
+            WorkoutPlanner.MuscleGroup group = entry.key();
+            WorkoutPlanner.SorenessLevel level = entry.value();
 
             // If soreness level is at or above mandatory rest level, add to rest map
             if (level.getLevel() >= mandatoryRestLevel.getLevel()) {
