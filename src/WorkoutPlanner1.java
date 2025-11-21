@@ -1,3 +1,4 @@
+import components.map.Map;
 import components.map.Map.Pair;
 import components.map.Map1L;
 
@@ -32,7 +33,7 @@ public final class WorkoutPlanner1 extends WorkoutPlannerSecondary {
     @Override
     public WorkoutPlanner.SorenessLevel remove(
             WorkoutPlanner.MuscleGroup muscleGroup) {
-        // Delegate to the Map component's kernel remove method (O(1) amortized)
+        // Delegate to the Map component's kernel remove method
         // We remove the pair and return just the value (SorenessLevel)
         return this.map.remove(muscleGroup).value();
     }
@@ -88,8 +89,4 @@ public final class WorkoutPlanner1 extends WorkoutPlannerSecondary {
         this.map.transferFrom(localSource.map);
     }
 
-    // NOTE: equals() and hashCode() are inherited from Object.
-    // They should be overridden for production code, but for kernel implementation,
-    // we assume the underlying Map component implements these correctly or that
-    // the user implements them in a subsequent step.
 }
