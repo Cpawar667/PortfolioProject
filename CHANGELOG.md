@@ -10,6 +10,12 @@ the following form: YYYY.0M.0D.
 
 -Interfaces use map under hood instead of using generic types
 
+## [2025.11.6]
+
+-Abstract class
+
+## [Unreleased]
+
 ## [2024.12.30]
 
 - Added table-based rubrics to all 6 parts of the project
