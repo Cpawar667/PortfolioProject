@@ -104,7 +104,7 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: I enjoy playing video games, lifing weights, running, listening to music. I am majoring in ECE so in the future I would like to build some heardware or work on software for companies. 
+I enjoy playing video games, lifing weights, running, listening to music. I am majoring in ECE so in the future I would like to build some heardware or work on software for companies.
 
 ## Assignment
 
@@ -198,7 +198,10 @@ will likely refine your design to make your implementation easier to use.
   - **Description**:
     -  I would like to create something that creates a workout plan for the day based off how you feel and where you are sore. Uses map to track how you feel in each muscle group.
   - **Kernel Methods**:
-    - <!-- TODO:final void
+
+    canTrainMuscleGroup() Checks if a specific muscle group is safe to train.
+    getMostRecoveredGroup() Finds the muscle group with the lowest soreness level (most recovered).
+    updateSoreness() Updates soreness of muscle after working out
 add(K key, V value): Adds the pair (key, value) to this.
 final void clear(): Resets this to an initial value.
 final boolean hasKey(K key): Reports whether there is a pair in this whose first component is key.
@@ -207,11 +210,10 @@ final V replaceValue(K key, V value): Replaces the value associated with key in 
 final int size(): Reports size of this.
 final V value(K key): Reports the value associated with key in this.
   - **Secondary Methods**:
-    - <!-- TODO: 
+    - <!-- TODO:
     final Iterator<Map.Pair<K,V>> iterator()
     final Map<K,V> newInstance(): Returns a new object with the same dynamic type as this, having an initial value.
-    final Map.Pair<K,V> removeAny(): Removes and returns an arbitrary pair from this.
-    final void transferFrom(Map<K,V> source): Sets this to the incoming value of source, and resets source to an initial value; the declaration notwithstanding, the dynamic type of source must be the same as the dynamic type of this.
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
@@ -234,7 +236,7 @@ T remove(int pos)	Removes and returns item at index pos
 T entry(int pos)	Returns (but does not remove) item at index pos
 T replaceEntry(int pos, T x)	Replaces entry at pos with x, returns the old entry
 int length()	Returns the number of entries
-void clear()	Removes all entries 
+void clear()	Removes all entries
   - **Secondary Methods**:
     - boolean isEmpty()	length()	Checks if playlist is empty
 void addToEnd(T x)	add(int, T), length()	Adds item to the end
@@ -259,7 +261,7 @@ void moveToEnd(T x)	remove(int), addToEnd()	Moves item to end
       Answer, explain, and give at least one example:
       - Yes I dont know what it would like yet
 
-- Component Design #3: Interval set 
+- Component Design #3: Interval set
   - **Description**:
     - I would like a to create a set of inetervals, so it can used for a schedule. It would store the data ause memory allocation
   - **Kernel Methods**:
@@ -312,11 +314,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
-## YYYY.MM.DD
+## 2025.10.21
 
 ### Added
 
-- Designed a <!-- insert name of component 1 here --> component
+- Designed a couple methods for workout component
 - Designed a <!-- insert name of component 2 here --> component
 - Designed a <!-- insert name of component 3 here --> component
 ```
