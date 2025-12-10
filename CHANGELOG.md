@@ -50,6 +50,7 @@ the following form: YYYY.0M.0D.
 - Updated README to include step about using template repo
 - Updated part 3 rubric to include a hierarchy diagram
 - Updated part 6 rubric to account for overall polish
+  -Interfaces use map under hood instead of using generic types
 
 ### Fixed
 
