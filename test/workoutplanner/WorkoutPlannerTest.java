@@ -1,3 +1,4 @@
+package workoutplanner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -7,7 +8,6 @@ import org.junit.Test;
 import components.map.Map;
 import components.map.Map1L;
 import components.sequence.Sequence;
-import components.sequence.Sequence1L;
 
 /**
  * JUnit test fixture for {@code WorkoutPlanner}'s secondary methods
@@ -52,10 +52,13 @@ public abstract class WorkoutPlannerTest {
     protected abstract WorkoutPlanner constructorTest();
 
     /**
-     * Creates a {@code WorkoutPlanner} object with the given muscle group states.
+     * Creates a {@code WorkoutPlanner} object with the given muscle group
+     * states.
      *
-     * @param groups array of muscle groups
-     * @param levels array of soreness levels
+     * @param groups
+     *            array of muscle groups
+     * @param levels
+     *            array of soreness levels
      * @return a reference WorkoutPlanner object
      * @requires groups.length = levels.length
      */
@@ -73,8 +76,10 @@ public abstract class WorkoutPlannerTest {
     /**
      * Creates a Map object from the given muscle group states for comparison.
      *
-     * @param groups array of muscle groups
-     * @param levels array of soreness levels
+     * @param groups
+     *            array of muscle groups
+     * @param levels
+     *            array of soreness levels
      * @return a Map object
      * @requires groups.length = levels.length
      */
@@ -170,7 +175,7 @@ public abstract class WorkoutPlannerTest {
 
         // Check that all suitable groups are present in the plan
         for (WorkoutPlanner.MuscleGroup group : groups) {
-            assertTrue(trainingPlan.contains(group));
+            assertTrue(sequenceContains(trainingPlan, group));
         }
         assertEquals(groups.length, trainingPlan.length());
     }
@@ -222,10 +227,10 @@ public abstract class WorkoutPlannerTest {
 
         // Check plan contents
         assertEquals(2, trainingPlan.length());
-        assertTrue(trainingPlan.contains(CHEST));
-        assertTrue(trainingPlan.contains(ARMS));
-        assertTrue(!trainingPlan.contains(BACK));
-        assertTrue(!trainingPlan.contains(LEGS));
+        assertTrue(sequenceContains(trainingPlan, CHEST));
+        assertTrue(sequenceContains(trainingPlan, ARMS));
+        assertTrue(!sequenceContains(trainingPlan, BACK));
+        assertTrue(!sequenceContains(trainingPlan, LEGS));
     }
 
     /*
@@ -310,4 +315,17 @@ public abstract class WorkoutPlannerTest {
         assertEquals(pRef, pTest);
         assertEquals(expectedRestMap, restMap);
     }
-}}
+
+    /**
+     * Helper to check if a Sequence contains an item (Sequence has no
+     * contains()).
+     */
+    private static <T> boolean sequenceContains(Sequence<T> seq, T item) {
+        for (int i = 0; i < seq.length(); i++) {
+            if (seq.entry(i).equals(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

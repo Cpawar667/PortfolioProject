@@ -1,3 +1,7 @@
+import components.sequence.Sequence;
+import workoutplanner.WorkoutPlanner;
+import workoutplanner.WorkoutPlannerKernel;
+
 /**
  * Proof-of-concept component that uses the WorkoutPlanner as its internal
  * representation to manage a user's current fitness state and plan readiness.
@@ -11,11 +15,14 @@ public class FitnessApp {
     private WorkoutPlanner sorenessMap;
 
     /**
-     * Constructs a new FitnessTracker with an empty workout planner state.
+     * Constructs a new FitnessApp with the provided workout planner
+     * implementation.
+     *
+     * @param planner
+     *            the WorkoutPlanner implementation to use for tracking soreness
      */
-    public FitnessTracker() {
-        // Assume DemoImplementation is the concrete type available.
-        this.sorenessMap = new DemoImplementation();
+    public FitnessApp(WorkoutPlanner planner) {
+        this.sorenessMap = planner;
     }
 
     /**
@@ -28,11 +35,16 @@ public class FitnessApp {
      */
     public void recordDailyStatus(WorkoutPlanner.MuscleGroup group,
             WorkoutPlanner.SorenessLevel level) {
+        // Convert public-facing enums to kernel enums before calling kernel methods.
+        WorkoutPlannerKernel.MuscleGroup kGroup = WorkoutPlannerKernel.MuscleGroup
+                .valueOf(group.name());
+        WorkoutPlannerKernel.SorenessLevel kLevel = WorkoutPlannerKernel.SorenessLevel
+                .valueOf(level.name());
         // Uses kernel method 'add' or 'replaceValue' (indirectly)
-        if (this.sorenessMap.hasKey(group)) {
-            this.sorenessMap.replaceValue(group, level);
+        if (this.sorenessMap.hasKey(kGroup)) {
+            this.sorenessMap.replaceValue(kGroup, kLevel);
         } else {
-            this.sorenessMap.add(group, level);
+            this.sorenessMap.add(kGroup, kLevel);
         }
     }
 
@@ -56,16 +68,24 @@ public class FitnessApp {
         // Uses kernel method to retrieve current status (value)
         System.out.println("--- Tracker Status (Snapshot) ---");
         // NOTE: We cannot easily iterate without removeAny, so we check specific keys.
-        System.out.println("Chest Soreness: "
-                + (this.sorenessMap.hasKey(WorkoutPlanner.MuscleGroup.CHEST)
-                        ? this.sorenessMap
-                                .value(WorkoutPlanner.MuscleGroup.CHEST)
-                        : "N/A"));
-        System.out.println("Legs Soreness: "
-                + (this.sorenessMap.hasKey(WorkoutPlanner.MuscleGroup.LEGS)
-                        ? this.sorenessMap
-                                .value(WorkoutPlanner.MuscleGroup.LEGS)
-                        : "N/A"));
+        String chestStatus;
+        if (this.sorenessMap.hasKey(WorkoutPlanner.MuscleGroup.CHEST)) {
+            chestStatus = String.valueOf(
+                    this.sorenessMap.value(WorkoutPlanner.MuscleGroup.CHEST));
+        } else {
+            chestStatus = "N/A";
+        }
+        System.out.println("Chest Soreness: " + chestStatus);
+
+        String legsStatus;
+        if (this.sorenessMap.hasKey(WorkoutPlanner.MuscleGroup.LEGS)) {
+            legsStatus = String.valueOf(
+                    this.sorenessMap.value(WorkoutPlanner.MuscleGroup.LEGS));
+        } else {
+            legsStatus = "N/A";
+        }
+        System.out.println("Legs Soreness: " + legsStatus);
+
         System.out.println("---------------------------------");
     }
 }
