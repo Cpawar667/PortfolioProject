@@ -1,4 +1,4 @@
-package workoutplanner;
+package components.workoutplanner;
 
 import components.map.Map;
 import components.map.Map.Pair;
@@ -30,7 +30,7 @@ public final class WorkoutPlanner1 extends WorkoutPlannerSecondary {
      * The internal representation of the WorkoutPlanner, holding muscle groups
      * and their corresponding soreness levels.
      */
-    private Map<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> map;
+    private Map<MuscleGroup, SorenessLevel> map;
 
     /**
      * Constructs and returns a default instance of the component.
@@ -46,33 +46,32 @@ public final class WorkoutPlanner1 extends WorkoutPlannerSecondary {
      */
 
     @Override
-    public void add(WorkoutPlanner.MuscleGroup muscleGroup,
-            WorkoutPlanner.SorenessLevel sorenessLevel) {
+    public void add(MuscleGroup muscleGroup, SorenessLevel sorenessLevel) {
         // Delegate to the Map component's kernel add method (O(1) amortized)
         this.map.add(muscleGroup, sorenessLevel);
     }
 
     @Override
-    public SorenessLevel remove(WorkoutPlanner.MuscleGroup muscleGroup) {
+    public SorenessLevel remove(MuscleGroup muscleGroup) {
         // Delegate to the Map component's kernel remove method (O(1) amortized)
         // We remove the pair and return just the value (SorenessLevel)
         return this.map.remove(muscleGroup).value();
     }
 
     @Override
-    public Pair<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> removeAny() {
+    public Pair<MuscleGroup, SorenessLevel> removeAny() {
         // Delegate to the Map component's kernel removeAny method (O(1) amortized)
         return this.map.removeAny();
     }
 
     @Override
-    public SorenessLevel value(WorkoutPlanner.MuscleGroup muscleGroup) {
+    public SorenessLevel value(MuscleGroup muscleGroup) {
         // Delegate to the Map component's value method (O(1) amortized)
         return this.map.value(muscleGroup);
     }
 
     @Override
-    public boolean hasKey(WorkoutPlanner.MuscleGroup muscleGroup) {
+    public boolean hasKey(MuscleGroup muscleGroup) {
         // Delegate to the Map component's hasKey method (O(1) amortized)
         return this.map.hasKey(muscleGroup);
     }

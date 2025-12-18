@@ -1,4 +1,4 @@
-package workoutplanner;
+package components.workoutplanner;
 
 import components.map.Map;
 import components.sequence.Sequence;

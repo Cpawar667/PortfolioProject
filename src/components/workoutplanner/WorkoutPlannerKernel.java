@@ -1,4 +1,4 @@
-package workoutplanner; // <--- THIS LINE IS CRITICAL
+package components.workoutplanner;
 
 import components.map.Map;
 import components.standard.Standard;
@@ -74,30 +74,6 @@ public interface WorkoutPlannerKernel extends Standard<WorkoutPlanner> {
      * @ensures hasKey = (muscleGroup is in DOMAIN(this))
      */
     boolean hasKey(MuscleGroup muscleGroup);
-
-    /**
-     * MuscleGroup enumeration used to identify muscle groups.
-     */
-    public static enum MuscleGroup {
-        CHEST, BACK, LEGS, ARMS, SHOULDERS, CORE
-    }
-
-    /**
-     * SorenessLevel enumeration used to indicate soreness severity.
-     */
-    public static enum SorenessLevel {
-        NONE(0), LOW(1), MEDIUM(2), HIGH(3);
-
-        private final int level;
-
-        SorenessLevel(int level) {
-            this.level = level;
-        }
-
-        public int getLevel() {
-            return this.level;
-        }
-    }
 
     /**
      * Reports the number of muscle status pairs in {@code this}.

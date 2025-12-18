@@ -1,6 +1,8 @@
 import components.map.Map;
-import workoutplanner.WorkoutPlanner;
-import workoutplanner.WorkoutPlanner1;
+import components.workoutplanner.MuscleGroup;
+import components.workoutplanner.SorenessLevel;
+import components.workoutplanner.WorkoutPlanner;
+import components.workoutplanner.WorkoutPlanner1;
 
 /**
  * Utility class demonstrating direct use of the WorkoutPlanner component.
@@ -25,9 +27,8 @@ public final class DailyPlanGenerator {
          * @return a Map from MuscleGroup to SorenessLevel containing groups
          *         requiring rest
          */
-        public static Map<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> getMandatoryRestGroups(
-                        WorkoutPlanner statusPlanner,
-                        WorkoutPlanner.SorenessLevel threshold) {
+        public static Map<MuscleGroup, SorenessLevel> getMandatoryRestGroups(
+                        WorkoutPlanner statusPlanner, SorenessLevel threshold) {
                 return statusPlanner.generateRestMap(threshold);
         }
 
@@ -42,16 +43,13 @@ public final class DailyPlanGenerator {
                 // Use the concrete implementation from the workoutplanner package
                 WorkoutPlanner userStatus = new WorkoutPlanner1();
 
-                userStatus.add(WorkoutPlanner.MuscleGroup.BACK,
-                                WorkoutPlanner.SorenessLevel.HIGH);
-                userStatus.add(WorkoutPlanner.MuscleGroup.CHEST,
-                                WorkoutPlanner.SorenessLevel.LOW);
-                userStatus.add(WorkoutPlanner.MuscleGroup.LEGS,
-                                WorkoutPlanner.SorenessLevel.MEDIUM);
+                userStatus.add(MuscleGroup.BACK, SorenessLevel.HIGH);
+                userStatus.add(MuscleGroup.CHEST, SorenessLevel.LOW);
+                userStatus.add(MuscleGroup.LEGS, SorenessLevel.MEDIUM);
 
-                final WorkoutPlanner.SorenessLevel THRESHOLD = WorkoutPlanner.SorenessLevel.HIGH;
+                final SorenessLevel THRESHOLD = SorenessLevel.HIGH;
 
-                Map<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> restRequired = getMandatoryRestGroups(
+                Map<MuscleGroup, SorenessLevel> restRequired = getMandatoryRestGroups(
                                 userStatus, THRESHOLD);
 
                 System.out.println("--- Daily Plan Generator Utility Demo ---");
@@ -59,7 +57,7 @@ public final class DailyPlanGenerator {
 
                 if (restRequired.size() > 0) {
                         while (restRequired.size() > 0) {
-                                Map.Pair<WorkoutPlanner.MuscleGroup, WorkoutPlanner.SorenessLevel> entry = restRequired
+                                Map.Pair<MuscleGroup, SorenessLevel> entry = restRequired
                                                 .removeAny();
                                 System.out.println("- " + entry.key()
                                                 + " (Soreness: " + entry.value()
