@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## [2025.11.6]
+
+-Interfaces use map under hood instead of using generic types
+
+## [2025.11.6]
+
+-Abstract class
+
 ## [Unreleased]
 
 ## [2024.12.30]
@@ -50,6 +58,7 @@ the following form: YYYY.0M.0D.
 - Updated README to include step about using template repo
 - Updated part 3 rubric to include a hierarchy diagram
 - Updated part 6 rubric to account for overall polish
+  -Interfaces use map under hood instead of using generic types
 
 ### Fixed
 
